@@ -16,5 +16,15 @@ INSERT INTO Emp VALUES (4, 'Sara', 'Clerk', 2200, NULL, 20);
 INSERT INTO Emp VALUES (5, 'Mike', 'Salesperson', 3200, 500, 30);
 
 select EmpNo, Ename from Emp where DeptNo = 10;
+
 select Ename from Emp where Job = 'Clerk' and Salary > 2000;
+
+select Ename, Job from Emp where Job in ('Salesperson', 'Clerk');
+
+select * from Emp where Salary >2000 and Salary <3000;
+
+select * from Emp where DeptNo in(10,20,30);
+
+select * from Emp where Commission is NULL;
 */
+
