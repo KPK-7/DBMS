@@ -1,4 +1,4 @@
--- Q1) Use the following functions 
+ -- Q1) Use the following functions 
 -- 1. chr (n):
 select chr(86) from dual;
 
@@ -60,12 +60,23 @@ select floor(23.60) from dual;
 select mod(20, 3) from dual;
 
 -- 21. power(x ,y):
+select power(2, 2) from dual;
 
+-- 22. round(x [,y]):
+select round(235.2673, 2) from dual;
+
+-- 23. sign(n):
+select sign(-34.67) from dual;
+/* If number > 0, it returns 1
+If number = 0, it returns 0
+If number < 0, it returns -1 */
+
+-- 24. sqrt(n);
+select sqrt(16) from dual;
+
+-- 25. trunc(x ,n):
+select trunc()
 /*
-22. round(x [,y]):
-23. sign(n):
-24. sqrt(n);
-25. trunc(x ,n):
 26. sysdate:
 27. add_months(d ,n):
 28. last_day():
