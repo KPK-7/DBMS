@@ -1,0 +1,39 @@
+-- Write queries to:
+-- 1. Display the system date
+select sysdate from dual;
+
+-- 2. Display current day
+select current_date from dual;
+
+-- 3. Display current month and spell out year
+select to_char(sysdate,'month') as current_month from dual;
+select to_char(sysdate,'year') as spell_out_year from dual;
+
+-- 4. Display spell out current date
+select current_date as spell_out_current_date from dual;
+
+-- 5. Check whether it is AM or PM right now
+
+/*
+6. Display the date of next Friday
+7. Round the system date on month
+8. Truncate the system date on month
+9. Round the system date on year
+10. Truncate the system date on year
+11. Find the day after three days
+Queries Based on EMP table
+12. Create an EMP table (Empno number, Name Varchar2(20),
+date_of_joining date)
+13. Display day of date of joining column
+14. Display those employees who join the company on Monday
+15. Display those employees who join the company this month
+16. Display those employees who join the company in last 30 days
+Queries based on Train Arrival and Departure
+17. Create a table Train having four columns (TrainNo Number (6)
+primary key, date of departure, time of departure, time of arrival)
+18. Insert five records into the table Train.
+19. Display all the three records
+20. Display the time values inserted in the columns
+21. Display those trains which arrived on PM
+22. Display train number who are going to depart in next one hour.
+*/
