@@ -14,24 +14,68 @@ select current_date as spell_out_current_date from dual;
 
 -- 5. Check whether it is AM or PM right now
 
+
+-- 6. Display the date of next Friday
+select next_day (add_months (to_date('24-FEB-09', 'DD-MON-YY'), 6), 'FRI') from dual;
+
+-- 7. Round the system date on month
+select round(sysdate,'month') as rounded_date from dual;
+
+-- 8. Truncate the system date on month
+select trunc(sysdate,'month') as truncate_date from dual;
+
+-- 9. Round the system date on year
+select round(sysdate,'year') as rounded_date from dual;
+
+-- 10. Truncate the system date on year
+select trunc(sysdate,'year') as truncated_year from dual;
+
+-- 11. Find the day after three days
+select to_char(sysdate+3,'day') as days_after_3_days from dual;
+
+-- Queries Based on EMP table
+-- 12. Create an EMP table (Empno number, Name Varchar2(20), date_of_joining date)
+create table Emp(
+    Empno number,
+    Name Varchar2(50),
+    Date_of_joining date
+);
+-- Inserting dummy data for the following questions given below:
+-- insert into Emp (Empno, Name, Date_of_Joining) values (1, 'John Doe', TO_DATE('2023-01-15', 'YYYY-MM-DD'));
+-- insert into Emp (Empno, Name, Date_of_Joining) values (2, 'Jane Smith', TO_DATE('2023-02-20', 'YYYY-MM-DD'));
+-- insert into Emp (Empno, Name, Date_of_Joining) values (3, 'Alice Johnson', TO_DATE('2023-03-05', 'YYYY-MM-DD'));
+-- insert into Emp (Empno, Name, Date_of_Joining) values (4, 'Bob Williams', TO_DATE('2023-04-10', 'YYYY-MM-DD'));
+-- insert into Emp (Empno, Name, Date_of_Joining) values (5, 'Charlie Brown', TO_DATE('2023-05-25', 'YYYY-MM-DD'));
+
+-- select * from Emp;
+
+-- 13. Display day of date of joining column
+
+-- 14. Display those employees who join the company on Monday
+-- select Empno, Name, Date_of_joining from Emp where to_char(Date_of_joining) = 'monday';
+
+-- 15. Display those employees who join the company this month
+-- select Empno, Name, Date_of_joining from Emp where to_char(Date_of_joining,'month')=to_char(sysdate,'month');
+
+-- 16. Display those employees who join the company in last 30 days
+
+-- Queries based on Train Arrival and Departure
+-- 17. Create a table Train having four columns (TrainNo Number (6) primary key, date of departure, time of departure, time of arrival)
+create table Train(
+    TrainNo number(6) PRIMARY KEY,
+    Date_of_Departure date,
+    Time_of_Departure timestamp,
+    Time_of_Arrival timestamp
+);
+
+-- 18.) Insert five records into the table Train.
+INSERT INTO Train VALUES (101, TO_DATE('2023-03-15', 'YYYY-MM-DD'), TO_TIMESTAMP('08:00:00', 'HH24:MI:SS'), TO_TIMESTAMP('12:00:00', 'HH24:MI:SS'));
+INSERT INTO Train VALUES (102, TO_DATE('2023-03-16', 'YYYY-MM-DD'), TO_TIMESTAMP('10:30:00', 'HH24:MI:SS'), TO_TIMESTAMP('14:45:00', 'HH24:MI:SS'));
+INSERT INTO Train VALUES (103, TO_DATE('2023-03-17', 'YYYY-MM-DD'), TO_TIMESTAMP('14:00:00', 'HH24:MI:SS'), TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'));
+INSERT INTO Train VALUES (104, TO_DATE('2023-03-18', 'YYYY-MM-DD'), TO_TIMESTAMP('16:45:00', 'HH24:MI:SS'), TO_TIMESTAMP('21:15:00', 'HH24:MI:SS'));
+INSERT INTO Train VALUES (105, TO_DATE('2023-03-19', 'YYYY-MM-DD'), TO_TIMESTAMP('20:15:00', 'HH24:MI:SS'), TO_TIMESTAMP('01:30:00', 'HH24:MI:SS'));
+
 /*
-6. Display the date of next Friday
-7. Round the system date on month
-8. Truncate the system date on month
-9. Round the system date on year
-10. Truncate the system date on year
-11. Find the day after three days
-Queries Based on EMP table
-12. Create an EMP table (Empno number, Name Varchar2(20),
-date_of_joining date)
-13. Display day of date of joining column
-14. Display those employees who join the company on Monday
-15. Display those employees who join the company this month
-16. Display those employees who join the company in last 30 days
-Queries based on Train Arrival and Departure
-17. Create a table Train having four columns (TrainNo Number (6)
-primary key, date of departure, time of departure, time of arrival)
-18. Insert five records into the table Train.
 19. Display all the three records
 20. Display the time values inserted in the columns
 21. Display those trains which arrived on PM
