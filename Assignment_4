@@ -1,3 +1,4 @@
+/*
 -- Write queries to:
 -- 1. Display the system date
 select sysdate from dual;
@@ -35,19 +36,20 @@ select to_char(sysdate+3,'day') as days_after_3_days from dual;
 
 -- Queries Based on EMP table
 -- 12. Create an EMP table (Empno number, Name Varchar2(20), date_of_joining date)
+
 create table Emp(
     Empno number,
     Name Varchar2(50),
     Date_of_joining date
 );
 -- Inserting dummy data for the following questions given below:
--- insert into Emp (Empno, Name, Date_of_Joining) values (1, 'John Doe', TO_DATE('2023-01-15', 'YYYY-MM-DD'));
--- insert into Emp (Empno, Name, Date_of_Joining) values (2, 'Jane Smith', TO_DATE('2023-02-20', 'YYYY-MM-DD'));
--- insert into Emp (Empno, Name, Date_of_Joining) values (3, 'Alice Johnson', TO_DATE('2023-03-05', 'YYYY-MM-DD'));
--- insert into Emp (Empno, Name, Date_of_Joining) values (4, 'Bob Williams', TO_DATE('2023-04-10', 'YYYY-MM-DD'));
--- insert into Emp (Empno, Name, Date_of_Joining) values (5, 'Charlie Brown', TO_DATE('2023-05-25', 'YYYY-MM-DD'));
+insert into Emp (Empno, Name, Date_of_Joining) values (1, 'John Doe', TO_DATE('2023-01-15', 'YYYY-MM-DD'));
+insert into Emp (Empno, Name, Date_of_Joining) values (2, 'Jane Smith', TO_DATE('2023-02-20', 'YYYY-MM-DD'));
+insert into Emp (Empno, Name, Date_of_Joining) values (3, 'Alice Johnson', TO_DATE('2023-03-05', 'YYYY-MM-DD'));
+insert into Emp (Empno, Name, Date_of_Joining) values (4, 'Bob Williams', TO_DATE('2023-04-10', 'YYYY-MM-DD'));
+insert into Emp (Empno, Name, Date_of_Joining) values (5, 'Charlie Brown', TO_DATE('2023-05-25', 'YYYY-MM-DD'));
 
--- select * from Emp;
+select * from Emp;
 
 -- 13. Display day of date of joining column
 
@@ -75,9 +77,23 @@ INSERT INTO Train VALUES (103, TO_DATE('2023-03-17', 'YYYY-MM-DD'), TO_TIMESTAMP
 INSERT INTO Train VALUES (104, TO_DATE('2023-03-18', 'YYYY-MM-DD'), TO_TIMESTAMP('16:45:00', 'HH24:MI:SS'), TO_TIMESTAMP('21:15:00', 'HH24:MI:SS'));
 INSERT INTO Train VALUES (105, TO_DATE('2023-03-19', 'YYYY-MM-DD'), TO_TIMESTAMP('20:15:00', 'HH24:MI:SS'), TO_TIMESTAMP('01:30:00', 'HH24:MI:SS'));
 
-/*
-19. Display all the three records
-20. Display the time values inserted in the columns
-21. Display those trains which arrived on PM
-22. Display train number who are going to depart in next one hour.
+-- 19. Display all the three records
+-- SELECT * FROM Train;
+SELECT * FROM Train;
+
+-- 20. Display the time values inserted in the columns
+SELECT TO_CHAR(Time_of_Departure,'HH:MI:SS') FROM Train;
+SELECT TO_CHAR(Time_of_Arrival,'HH:MI:SS') FROM Train;
+
+-- 21. Display those trains which arrived on PM
+SELECT TrainNo, TO_CHAR(Time_of_Arrival, 'PM') from Train;
 */
+-- 22. Display train number who are going to depart in next one hour.
+SELECT TO_CHAR(CURRENT_TIMESTAMP ) FROM dual;
+SELECT TO_CHAR(CURRENT_TIMESTAMP + INTERVAL '1' HOUR) FROM dual;
+-- SELECT * FROM Products WHERE Price BETWEEN 10 AND 20;
+-- INSERT INTO Train VALUES (106, TO_DATE('2024-02-09', 'YYYY-MM-DD'), TO_TIMESTAMP('15:45:00', 'HH24:MI:SS'), TO_TIMESTAMP('16:30:00', 'HH24:MI:SS'));
+SELECT Time_of_Departure FROM Train WHERE TrainNo=106; 
+SELECT TrainNo FROM Train WHERE Time_of_Departure BETWEEN CURRENT_TIMESTAMP AND CURRENT_TIMESTAMP + INTERVAL '1' HOUR;
+
+
