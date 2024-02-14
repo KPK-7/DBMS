@@ -14,7 +14,7 @@ select to_char(sysdate,'year') as spell_out_year from dual;
 select current_date as spell_out_current_date from dual;
 
 -- 5. Check whether it is AM or PM right now
-
+SELECT TO_CHAR(SYSDATE,'PM') AS CURR_TIME_INDICATOR FROM DUAL;
 
 -- 6. Display the date of next Friday
 select next_day (add_months (to_date('24-FEB-09', 'DD-MON-YY'), 6), 'FRI') from dual;
@@ -52,6 +52,7 @@ insert into Emp (Empno, Name, Date_of_Joining) values (5, 'Charlie Brown', TO_DA
 select * from Emp;
 
 -- 13. Display day of date of joining column
+SELECT Empno,Name, EXTRACT(DAY FROM Date_of_joining) AS Day_of_joining FROM EMP;
 
 -- 14. Display those employees who join the company on Monday
 -- select Empno, Name, Date_of_joining from Emp where to_char(Date_of_joining) = 'monday';
@@ -60,6 +61,7 @@ select * from Emp;
 -- select Empno, Name, Date_of_joining from Emp where to_char(Date_of_joining,'month')=to_char(sysdate,'month');
 
 -- 16. Display those employees who join the company in last 30 days
+SELECT * FROM EMP WHERE Date_of_joining >= SYSDATE-30;
 
 -- Queries based on Train Arrival and Departure
 -- 17. Create a table Train having four columns (TrainNo Number (6) primary key, date of departure, time of departure, time of arrival)
