@@ -116,7 +116,7 @@ INSERT INTO employees VALUES(1, 'Ratn', 50000.00, 2000.00, TO_DATE('1985-01-15',
 INSERT INTO employees VALUES(2, 'Kiran', 60000.00, 2500.00, TO_DATE('2022-01-20', 'YYYY-MM-DD'));
 INSERT INTO employees VALUES(3, 'Yash', 70000.00, 3000.00, TO_DATE('2022-03-10', 'YYYY-MM-DD'));
 
--- select * from employees;
+select * from employees;
 select emp_salary + emp_commission from employees;
 
 -- Q4) Store any date value in hiredate column of table ?
