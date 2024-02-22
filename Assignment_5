@@ -51,17 +51,53 @@ CREATE TABLE SPJ (
 );
 
 -- 7. Insert at least 5 appropriate records in the above tables.
-*/
--- For table dept
-INSERT INTO dept(deptno, dept_name) VALUES (1, 'Acc'), (2 'comp'), (3, 'elect');
--- For table emp
-INSERT INTO emp(empnno, emp_name, job, sal, deptno, mgr_no) VALUES (101, 'John Hasnberg', 'Prof', 75000.00, 1, NULL), (102, 'Jane Wolf', 'AP', 60000.00, 1, 101), (103, 'Bob Johnson', 'Lect', 50000.00, 2, 101), (104, 'Alice Brown', 'Prof', 80000.00, 2, NULL);
--- For table S
-INSERT INTO S(sno, sname, city) VALUES (101, 's1', 'city1'), (102, 's2', 'city2'), (103, 's3', 'city3');
--- For table P
 
+-- For table dept
+INSERT INTO dept (deptno, dept_name) VALUES (1, 'Acc');
+INSERT INTO dept (deptno, dept_name) VALUES (2, 'comp');
+INSERT INTO dept (deptno, dept_name) VALUES (3, 'elect');
+INSERT INTO dept (deptno, dept_name) VALUES (4, 'comp');
+INSERT INTO dept (deptno, dept_name) VALUES (5, 'Acc');
+
+-- For table emp
+INSERT INTO emp (empno, emp_name, job, sal, deptno, mgr_no) VALUES (101, 'John Doe', 'Prof', 80000.00, 1, NULL);
+INSERT INTO emp (empno, emp_name, job, sal, deptno, mgr_no) VALUES (102, 'Jane Smith', 'AP', 60000.00, 2, 101);
+INSERT INTO emp (empno, emp_name, job, sal, deptno, mgr_no) VALUES (103, 'Bob Johnson', 'Lect', 50000.00, 1, 101);
+INSERT INTO emp (empno, emp_name, job, sal, deptno, mgr_no) VALUES (104, 'Alice Brown', 'Prof', 90000.00, 3, NULL);
+INSERT INTO emp (empno, emp_name, job, sal, deptno, mgr_no) VALUES (105, 'Charlie Davis', 'AP', 70000.00, 2, 102);
+
+-- For table S
+INSERT INTO S (sno, sname, city) VALUES (1, 'John Smith', 'New York');
+INSERT INTO S (sno, sname, city) VALUES (2, 'Jane Johnson', 'Los Angeles');
+INSERT INTO S (sno, sname, city) VALUES (3, 'Bob Davis', 'Chicago');
+INSERT INTO S (sno, sname, city) VALUES (4, 'Alice Brown', 'San Francisco');
+INSERT INTO S (sno, sname, city) VALUES (5, 'Charlie White', 'Seattle');
+
+-- For table P
+INSERT INTO P (pno, pname, color) VALUES (1, 'Widget A', 'Red');
+INSERT INTO P (pno, pname, color) VALUES (2, 'Gadget B', 'Blue');
+INSERT INTO P (pno, pname, color) VALUES (3, 'Device C', 'Green');
+INSERT INTO P (pno, pname, color) VALUES (4, 'Tool D', 'Yellow');
+INSERT INTO P (pno, pname, color) VALUES (5, 'Appliance E', 'Black');
+
+-- For table J
+INSERT INTO J (jno, jname, city) VALUES (1, 'Job A', 'New York');
+INSERT INTO J (jno, jname, city) VALUES (2, 'Job B', 'Los Angeles');
+INSERT INTO J (jno, jname, city) VALUES (3, 'Job C', 'Chicago');
+INSERT INTO J (jno, jname, city) VALUES (4, 'Job D', 'San Francisco');
+INSERT INTO J (jno, jname, city) VALUES (5, 'Job E', 'Seattle');
+
+-- For table SPJ
+INSERT INTO SPJ (sno, pno, jno, qty) VALUES (1, 1, 1, 10);
+INSERT INTO SPJ (sno, pno, jno, qty) VALUES (2, 2, 2, 20);
+INSERT INTO SPJ (sno, pno, jno, qty) VALUES (3, 3, 3, 15);
+INSERT INTO SPJ (sno, pno, jno, qty) VALUES (4, 4, 4, 25);
+INSERT INTO SPJ (sno, pno, jno, qty) VALUES (5, 5, 5, 30);
+*/
+
+-- 8. Drop the NOT NULL constraints from EMP table.
+DROP sal from 
 /*
-8. Drop the NOT NULL constraints from EMP table.
 9. Check all the constraints name and their type of EMP table.
 10. Drop the unique constraint on EMP_NAME of EMP table.
 11. Drop the Foreign Key constraint on DEPTNO
