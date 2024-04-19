@@ -1,0 +1,61 @@
+-- 1) WAP to find the greatest of three numbers.
+/*
+DECLARE
+	a number := 30;
+	b number := 40;
+	c number := 95;
+BEGIN
+	if a > b
+		AND a > c THEN
+		DBMS_OUTPUT.PUT_LINE('greatest number is : '|| a);
+
+	elsif b > a
+		AND b > c THEN
+		DBMS_OUTPUT.PUT_LINE('greatest number is : '|| b);
+
+	else
+		DBMS_OUTPUT.PUT_LINE('greatest number is : '|| c);
+	END if;
+END;
+*/
+
+-- 2) WAP to check whether number is odd or even.
+
+DECLARE
+	a number := 4;
+BEGIN
+	if MOD(a,2) = 0 THEN
+    DBMS_OUTPUT.PUT_LINE('number ' || a ||' is even');
+	else
+	DBMS_OUTPUT.PUT_LINE('number ' || a ||' is odd');
+	END if;
+END;
+/
+
+-- 3) WAP to find the grade. Consider the following:
+-- Marks > 80 A grade
+-- Marks > 70 B grade
+-- Marks > 50 C grade
+-- Marks > 40 D grade
+-- Marks < 40 E grade
+
+DECLARE
+	mark1 := 80;
+	mark2 := 70;
+	mark3 := 50;
+	mark4 := 40;
+	mark5 := 40;
+BEGIN
+	if mark1
+	
+/*
+4) WAP to print the table of a given number.(use for loop)
+5) WAP to find out the factorial of a given number.(use while loop)
+6) WAP to find out the Fibonacci series.
+7) WAP to find the reverse of a number
+8) Write PL/SQL block that performs addition (+), subtraction (-), multiplication (*) and
+division (/) of two numbers as choice by the user.
+9) Write PL/SQL block to print 5, 10, 15,20 by using For Loop.
+10) Write Pl/SQL block to display welcome message like good morning, good afternoon, good
+night depending on system time.
+*/
