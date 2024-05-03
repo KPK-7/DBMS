@@ -1,0 +1,54 @@
+-- consider the table EMP( empno, ename, job, sal, deptno)
+
+CREATE TABLE EMP (
+    empno INT PRIMARY KEY,
+    ename VARCHAR(50),
+    job VARCHAR(50),
+    sal DECIMAL(10, 2),
+    deptno INT
+);
+
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7839, 'KING', 'PRESIDENT', 5000.00, 10);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7566, 'JONES', 'MANAGER', 2975.00, 20);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7698, 'BLAKE', 'MANAGER', 2850.00, 30);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7782, 'CLARK', 'MANAGER', 2450.00, 10);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7788, 'SCOTT', 'ANALYST', 3000.00, 20);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7902, 'FORD', 'ANALYST', 3000.00, 20);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7560, 'MARTIN', 'SALESMAN', 1250.00, 30);
+INSERT INTO EMP (empno, ename, job, sal, deptno) VALUES (7690, 'ALLEN', 'SALESMAN', 1600.00, 30);
+SELECT * FROM EMP;
+
+-- Question 1:- Write a sorted function  to display the empno, ename, and job of employees of a department for EMP table using a parameterized cursor where deptno will be sent as a parameter to the cursor from  the stored function.
+CREATE OR REPLACE FUNCTION GetEmployeesByDept(dept_id IN INT) RETURN SYS_REFCURSOR IS
+    emp_cursor SYS_REFCURSOR;
+BEGIN
+    OPEN emp_cursor FOR
+    SELECT empno, ename, job
+    FROM EMP
+    WHERE deptno = dept_id
+    ORDER BY empno;
+    
+    RETURN emp_cursor;
+END;
+/
+
+DECLARE
+    emp_result SYS_REFCURSOR;
+    empno EMP.EMPNO%TYPE;
+    ename EMP.ENAME%TYPE;
+    job EMP.JOB%TYPE; 
+BEGIN
+    emp_result := GetEmployeesByDept(10); -- Replace 10 with the desired department ID
+    LOOP
+        FETCH emp_result INTO empno, ename, job;
+        EXIT WHEN emp_result%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(empno || ' ' || ename || ' ' || job);
+    END LOOP;
+    CLOSE emp_result;
+END;
+/
+
+
+
+-- Question 2:- Display the total salary for rach job within each dept.
+SELECT deptno, job, SUM(sal) AS total_salary FROM EMP GROUP BY deptno, job ORDER BY deptno, job;
